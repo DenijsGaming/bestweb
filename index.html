@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In / Sign Up</title>
+
+  <!-- Add Open Graph and Twitter Card metadata tags -->
+  <meta property="og:title" content="THE BEST WEBSITE IN THE WORLD" />
+  <meta property="og:description" content="Sign up to comment on THE BEST WEBSITE IN THE WORLD!!!!111!" />
+  <meta property="og:image" content="your_image_url.png" />
+  <!-- Replace with the URL of an image to be displayed in the embed -->
+  <meta property="og:url" content="https://your-website-url.com" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Login/Signup" />
+  <meta name="twitter:description" content="A page for login and signup" />
+  <meta name="twitter:image" content="your_image_url.png" />
+  <!-- Replace with the URL of an image to be displayed in the embed -->
+  <meta name="twitter:url" content="https://your-website-url.com" />
+
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: url("city.gif") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    #bestSiteImage {
+      max-width: 50%;
+      height: auto;
+      animation: bestsiteshake 10s infinite;
+    }
+
+    #buttonContainer {
+      text-align: center;
+      margin-top: 20px;
+      z-index: 1;
+    }
+
+    button {
+      margin: 10px;
+      padding: 40px 40px;
+      font-size: 35px;
+      font-family: "Dosis", sans-serif;
+      font-weight: 800;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      /* Set cursor to pointer */
+    }
+
+    button:hover {
+      background-color: rgba(
+        255,
+        255,
+        255,
+        0.1
+      );
+      /* Add a slight background color on hover */
+    }
+
+    #gifContainer {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    #jumpscareGif {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #warningText {
+      color: red;
+      font-weight: bold;
+      text-align: center;
+      z-index: 1;
+      animation: shake 0.3s infinite;
+      /* Apply shaking animation */
+    }
+
+    @keyframes shake {
+      0%, 100% {
+        transform: translate(-2px, 2px);
+      }
+
+      25%, 75% {
+        transform: translate(2px, -2px);
+      }
+
+      50% {
+        transform: translate(2px, 2px);
+      }
+    }
+
+    @keyframes bestsiteshake {
+        0%,
+        100% {
+          transform: translate(-10, 10);
+          rotate: translate (60);
+        }
+        25%,
+        75% {
+          transform: translate(10px, -10px);
+          rotate: translate (20);
+        }
+        50% {
+          transform: translate(10px, 10px);
+          rotate: translate (-10);
+        }
+      }
+  </style>
+
+  <!-- Include Dosis ExtraBold font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap" />
+</head>
+
+<body>
+  <img id="bestSiteImage" src="best site.png" alt="Best Site Image" />
+
+  <p id="warningText">
+    <span style="color: red; font-weight: bold">Photosensitivity Warning</span
+      >: The log in/sign up screen contains a flashing city background which can
+      trigger a seizure.
+  </p>
+
+  <div id="buttonContainer">
+    <button id="loginButton">Log In</button>
+    <button id="signupButton">Sign Up</button>
+  </div>
+
+  <div id="gifContainer">
+    <img id="jumpscareGif" src="jumpscare.png" alt="Jumpscare GIF" />
+    <audio id="audioPlayer">
+      <source src="jumpscare.mp3" type="audio/mpeg" />
+      Your browser does not support the audio tag.
+    </audio>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const loginButton = document.getElementById("loginButton");
+      const signupButton = document.getElementById("signupButton");
+      const buttonContainer = document.getElementById("buttonContainer");
+      const gifContainer = document.getElementById("gifContainer");
+      const audioPlayer = document.getElementById("audioPlayer");
+
+      // Function to request fullscreen
+      function requestFullscreen(element) {
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+          // Firefox
+          element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+          // Chrome, Safari, and Opera
+          element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+          // IE/Edge
+          element.msRequestFullscreen();
+        }
+      }
+
+      loginButton.addEventListener("click", function () {
+        requestFullscreen(document.documentElement); // Go fullscreen
+        buttonContainer.style.display = "none";
+        gifContainer.style.display = "block";
+        audioPlayer.play();
+      });
+
+      signupButton.addEventListener("click", function () {
+        requestFullscreen(document.documentElement); // Go fullscreen
+        buttonContainer.style.display = "none";
+        gifContainer.style.display = "block";
+        audioPlayer.play();
+      });
+    });
+  </script>
+</body>
+
+</html>
